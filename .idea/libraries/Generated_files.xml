@@ -121,7 +121,6 @@
       <root url="file://$PROJECT_DIR$/dist/js/Player.js" />
       <root url="file://$PROJECT_DIR$/dist/server.js" />
       <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
-      <root url="file://$PROJECT_DIR$/dist/bundle.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Point.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Map.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Particle.js" />
@@ -134,7 +133,6 @@
       <root url="file://$PROJECT_DIR$/dist/js/Player.js" />
       <root url="file://$PROJECT_DIR$/dist/server.js" />
       <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
-      <root url="file://$PROJECT_DIR$/dist/bundle.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Point.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Map.js" />
       <root url="file://$PROJECT_DIR$/dist/js/Particle.js" />
