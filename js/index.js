@@ -5,22 +5,17 @@
 import '../scss/main.scss';
 import map from '../js/class/Map.js';
 import Enemy from '../js/class/Enemy.js';
-// import Skill from './js/Skill';
 import Player from '../js/class/Player.js';
-import {draw as drawLoading} from '../js/loading.js';
 
 const enemyCount = 30;
 let player;
 let enemys = [];
-// let skillPoint;
 let holdingTime = 0;
 let holdingLevel = 0;
 let timer;
 
 const startPage = document.getElementById("start-page");
-const loadingPage = document.getElementById("loading-page");
 const startBtn = document.getElementById("start-button");
-const helpBtn = document.getElementById("help-button");
 const gameTitle = document.getElementById("game-title");
 const gameBtn = document.getElementById("game-btn");
 const restartBtn = document.getElementById("restart");
@@ -62,25 +57,10 @@ function createEnemy(numEnemy) {
     }
 }
 
-//添加技能点
-// function createSkill() {
-//     const x = Math.random() * map.width + map.width;
-//     const y = -Math.random() * map.height;
-//     const speed = Math.random() * 1 + 1;
-//     const type = ['shield', 'gravity', 'time', 'minimize', 'life',''][Math.floor(Math.random() * 5)];
-//
-//     skillPoint = new Skill({x, y, type});
-// }
-
 //碰撞检测
 function collision(enemy, player) {
     const disX = player.x - enemy.x;
     const disY = player.y - enemy.y;
-    if (player.hasGravity) {
-        return Math.hypot(disX, disY) < (player.gravityRadius + enemy.radius);
-    } else if (player.hasShield) {
-        return Math.hypot(disX, disY) < (player.shieldRadius + enemy.radius);
-    }
     return Math.hypot(disX, disY) < (player.radius + enemy.radius);
 }
 
@@ -120,9 +100,6 @@ function animate() {
         enemys[i].render();
         enemys[i].update();
         if (!player.dead && collision(enemys[i], player)) {
-            if (player.hasGravity) {
-                enemys[i].escape(player);
-            }
             if (i !== enemyIndex) {
 
                 if (player.lives === 0) {
@@ -135,30 +112,12 @@ function animate() {
                     enemys[i].y
                 );
 
-                if (player.hasShield) {
-                    enemys.splice(i, 1);
-                    enemys.push(new Enemy({
-                        x: Math.random() * map.width + map.width,
-                        y: Math.random() * map.height
-                    }));
-                }
-
                 enemyIndex = i;
             }
 
             hadCollision = true;
         }
     }
-
-    //技能粒子撞击判断
-    // if (collision(skillPoint, player)) {
-    //     if (!skillPoint.isEated && skillPoint.id !== skillId) {
-    //         player.setSkill(skillPoint.type);
-    //         skillId = skillPoint.id;
-    //         skillPoint.use();
-    //     }
-    //     hadCollision = true;
-    // }
 
     //碰到墙壁就狗带
     if (player.x < 0 || player.x > map.width || player.y < 0 || player.y > map.height) {
@@ -171,11 +130,7 @@ function animate() {
         hadCollision = false;
     } else {
         enemyIndex = null;
-        // skillId = null;
     }
-
-    // skillPoint.render();
-    // skillPoint.update();
     player.render();
 
     raf(animate);
@@ -242,31 +197,13 @@ function start() {
         resetGame();
         animate(); //animate只能调用一次
     });
-    helpBtn.addEventListener('click', () => {
-        console.log(document.getElementById("legend").style);
-        document.getElementById("legend").style.opacity =
-            document.getElementById("legend").style.opacity == '1' ? '0' : '1';
-    });
     restartBtn.addEventListener('click', () => resetGame());
     restartBtn.addEventListener('touchstart', () => resetGame());
 }
 
-//进度条渲染
-let barRatio = 1;
+
 (function loading() {
-    console.log(barRatio);
-    if (barRatio !== 1) {
-        raf(loading);
-    } else {
-        startPage.style.display = "block";
-        loadingPage.style.display = "none";
-        start();
-    }
+    startPage.style.display = "block";
+    start();
 })();
 
-
-
-
-// if (module.hot) {
-//     module.hot.accept();
-// }

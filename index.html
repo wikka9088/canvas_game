@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>123</title>
+    <title>HTML5 GAME</title>
 </head>
 <body>
     <div id="start-page" class="start-page" style="display:none;">
         <div id="introduction" class="introduction">
-            <h1 id="game-title">Escape</h1>
+            <h1 id="game-title">HTML5 GAME</h1>
             <div id="game-btn" class="btn">
                 <span id="start-button">Play</span>
-                <span id="help-button">Help</span>
             </div>
         </div>
         <div id="game">
-            <div id="game-panel" class="game-panel" style="display:none">
+            <div id="game-panel" class="game-panel" style="display:block">
                 <p>LEVEL：<span id="level" class="level">1</span>TIME：<span id="time" class="time">0</span> s</p>
             </div>
             <canvas id="world"></canvas>
@@ -26,9 +25,6 @@
                 <span id="restart" class="restart-btn">Restart</span>
             </div>
         </div>
-    </div>
-    <div id="loading-page" class="loading-page">
-        <canvas id="loading"></canvas>
     </div>
 
     <script src="./dist/bundle.js"></script>
