@@ -1,0 +1,24 @@
+{
+  "name": "canvas_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wikka9088/canvas_game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wikka9088/canvas_game/issues"
+  },
+  "homepage": "https://github.com/wikka9088/canvas_game#readme",
+  "devDependencies": {
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
