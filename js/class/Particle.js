@@ -12,7 +12,7 @@ export default class Particle {
         this.destroy = false;
         this.speed = 0.04;
         this.size = options.size || 2;
-        this.color = options.color || "rgb(30,136,168)";
+        this.color = options.color || "#ffaf14";
         this.width = this.size + random() * 2;
         this.height = this.size + random() * 2;
     }

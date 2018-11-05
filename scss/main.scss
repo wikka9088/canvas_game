@@ -1,3 +1,4 @@
+$mainColor: #ffaf14;
 .introduction {
   position: absolute;
   left: 0;
@@ -35,7 +36,7 @@
     background-color: #000;
     border-radius: 20px;
     margin-top: 0;
-    border: 2px solid rgb(30, 136, 168);
+    border: 2px solid $mainColor;
     position: absolute;
     left: 10px;
     right: 10px;
@@ -74,12 +75,12 @@
       line-height: 50px;
       font-size: 20px;
       margin-top: 20px;
-      background-color: rgba(30,136,168, 0.2);
+      background-color: rgba(255,175,20, 0.2);
       border-radius: 25px;
-      border: 2px solid rgb(30,136,168);
-      color: rgb(30,136,168);
+      border: 2px solid $mainColor;
+      color: $mainColor;
       &:hover {
-        background-color: rgba(30,136,168, 1);
+        background-color: $mainColor;
         color: #fff;
       }
     }
@@ -121,12 +122,12 @@
       line-height: 50px;
       font-size: 20px;
       margin-top: 20px;
-      background-color: rgba(30,136,168, 0.2);
+      background-color: rgba(255,175,20, 0.2);
       border-radius: 25px;
-      border: 2px solid rgb(30,136,168);
-      color: rgb(30,136,168);
+      border: 2px solid $mainColor;
+      color: $mainColor;
       &:hover {
-        background-color: rgba(30,136,168, 1);
+        background-color: $mainColor;
         color: #fff;
         cursor: pointer;
       }

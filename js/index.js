@@ -19,6 +19,7 @@ const world = document.getElementById("game");
 const gamePanel = document.getElementById("game-panel");
 const gameOver = document.getElementById("game-over");
 const timeEle = document.getElementById("time");
+const lifeEle = document.getElementById("life");
 
 const raf = window.requestAnimationFrame
     || window.webkitRequestAnimationFrame
@@ -95,6 +96,8 @@ function animate() {
                 if (player.lives === 0) {
                     player.destroy();
                     gameOverModal();
+                } else {
+                    lifeEle.innerText = player.lives;
                 }
 
                 player.collision();

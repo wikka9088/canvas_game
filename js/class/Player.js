@@ -2,14 +2,14 @@ import Point from './Point';
 import map from './Map';
 import Particle from './Particle';
 
-const BODYCOLOR = "rgb(30,136,168)";
+const PLAYER_COLOR = "#ffaf14";
 
 export default class Player extends Point {
 
     constructor(options) {
         super(options);
         this.enemys = options.enemys;
-        this.color = options.color || BODYCOLOR;
+        this.color = options.color || PLAYER_COLOR;
         this.radius = 10;
         this.lives = options.lives || 2;
         this.particleCount = 30;
@@ -63,7 +63,7 @@ export default class Player extends Point {
         self.flashing = true;
         let timeout = setTimeout(function() {
             self.flashing = false;
-            self.color = BODYCOLOR;
+            self.color = PLAYER_COLOR;
             clearTimeout(timeout);
         }, 500);
     }
@@ -81,7 +81,7 @@ export default class Player extends Point {
 
             //闪烁效果
             if (self.flashing) {
-                self.color = ["#fff", BODYCOLOR][Math.round(Math.random())];
+                self.color = ["#fff", PLAYER_COLOR][Math.round(Math.random())];
             }
 
             map.ctx.fillStyle = self.color;
