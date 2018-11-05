@@ -3,11 +3,10 @@ import map from '../js/class/Map.js';
 import Enemy from '../js/class/Enemy.js';
 import Player from '../js/class/Player.js';
 
-const enemyCount = 30;
+const enemyCount = 100;
 let player;
 let enemys = [];
 let holdingTime = 0;
-let holdingLevel = 0;
 let timer;
 
 const startPage = document.getElementById("start-page");
@@ -62,7 +61,6 @@ function collision(enemy, player) {
 //添加计时器
 function initTimer() {
     holdingTime = 0;
-    holdingLevel = 0;
     clearTimeout(timer);
     let time = function() {
         timer = setTimeout(function() {
@@ -70,7 +68,6 @@ function initTimer() {
             timeEle.innerText = holdingTime;
             //每隔10秒加速一次
             if (holdingTime % 10 === 0) {
-                holdingLevel++;
                 for (let i = 0; i < enemys.length; i++) {
                     enemys[i].speedUp();
                 }
@@ -83,8 +80,8 @@ function initTimer() {
 }
 
 //循环动画
-var enemyIndex;
-var hadCollision = false;
+let enemyIndex;
+let hadCollision = false;
 function animate() {
     map.render();
 

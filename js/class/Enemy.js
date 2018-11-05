@@ -7,10 +7,7 @@ export default class Enemy extends Point {
         super(options);
         this.radius = Math.random() * 2 + 3;
         this.color = "red";
-        this.vx = 0;
-        this.vy = 0;
-        this.speed = options.speed || Math.random() * 1 + 0.5;
-        this.type = options.type || 'normal';
+        this.speed = options.speed || Math.random() + 0.5;
     }
 
     update() {
@@ -35,6 +32,5 @@ export default class Enemy extends Point {
         map.ctx.fillStyle = self.color;
         map.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2, false);
         map.ctx.fill();
-
     }
 }
