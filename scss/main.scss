@@ -25,66 +25,8 @@ $mainColor: #ffaf14;
       opacity: 1;
     }
   }
-  .desc {
-    padding: 20px;
-  }
-  .intro {
-    padding: 20px 0 5px 20px;
-    font-size: 25px;
-  }
-  .legend {
-    background-color: #000;
-    border-radius: 20px;
-    margin-top: 0;
-    border: 2px solid $mainColor;
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    z-index: 100;
-    opacity: 0;
-    -webkit-transition: all .5s ease-in;
-    transition: all .5s ease-in;
-    li {
-      color: #fff;
-      padding: 10px 20px;
-      width: 50%;
-      float: left;
-      display: inline-block;
-      box-sizing: border-box;
-    }
-  }
-  .btn {
-    position: absolute;
-    left: 50%;
-    bottom: 20%;
-    -webkit-transform: translate(-50%, 200%);
-    transform: translate(-50%, 200%);
-    text-align: center;
-    margin-top: 100px;
-    cursor: pointer;
-    -webkit-transition: all 1s ease-in;
-    transition: all 1s ease-in;
-    &.active {
-      -webkit-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-    }
-    span {
-      display: inline-block;
-      width: 200px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 20px;
-      margin-top: 20px;
-      background-color: rgba(255,175,20, 0.2);
-      border-radius: 25px;
-      border: 2px solid $mainColor;
-      color: $mainColor;
-      &:hover {
-        background-color: $mainColor;
-        color: #fff;
-      }
-    }
-  }
+
+
 }
 
 .game-panel {
@@ -92,9 +34,6 @@ $mainColor: #ffaf14;
   background-color: #000;
   font-size: 12px;
   padding: 10px;
-  .level {
-    margin-right: 10px;
-  }
 }
 
 .game-over {
@@ -110,27 +49,59 @@ $mainColor: #ffaf14;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     text-align: center;
-    padding-top: 10px;
     box-sizing: border-box;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 
-    #restart {
-      display: inline-block;
-      width: 200px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 20px;
-      margin-top: 20px;
-      background-color: rgba(255,175,20, 0.2);
-      border-radius: 25px;
-      border: 2px solid $mainColor;
-      color: $mainColor;
-      &:hover {
-        background-color: $mainColor;
-        color: #fff;
-        cursor: pointer;
-      }
+    //#restart {
+    //  display: inline-block;
+    //  width: 200px;
+    //  height: 50px;
+    //  line-height: 50px;
+    //  font-size: 20px;
+    //  margin-top: 20px;
+    //  background-color: rgba(255,175,20, 0.2);
+    //  border-radius: 25px;
+    //  border: 2px solid $mainColor;
+    //  color: $mainColor;
+    //  &:hover {
+    //    background-color: $mainColor;
+    //    color: #fff;
+    //    cursor: pointer;
+    //  }
+    //}
+  }
+}
+
+.btn {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  -webkit-transform: translate(-50%, 200%);
+  transform: translate(-50%, 200%);
+  text-align: center;
+  margin-top: 100px;
+  cursor: pointer;
+  -webkit-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+  &.active {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  span {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgba(255,175,20, 0.2);
+    border-radius: 25px;
+    border: 2px solid $mainColor;
+    color: $mainColor;
+    &:hover {
+      background-color: $mainColor;
+      color: #fff;
     }
   }
 }
