@@ -26,7 +26,7 @@ export default class Enemy extends Point {
     }
 
     speedUp(speed) {
-        this.speed += speed || 0.2;
+        this.speed += speed || 0.5;
     }
 
     render() {

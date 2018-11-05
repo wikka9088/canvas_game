@@ -1,26 +1,26 @@
 import Point from './Point';
 import map from './Map';
-import Life from './Life';
+// import Life from './Life';
 import Particle from './Particle';
 
 const BODYCOLOR = "rgb(30,136,168)";
-let dis = 1; //每个几帧画一个尾巴粒子的计数器
+// let dis = 1; //每个几帧画一个尾巴粒子的计数器
 
 export default class Player extends Point {
-    
+
     constructor(options) {
         super(options);
         this.enemys = options.enemys;
         this.color = options.color || BODYCOLOR;
         this.radius = 5;
         this.lives = options.lives || 2; //生命值
-        this.livesPoint = [];
-        this.tail = []; //尾巴位置数组
-        this.tailLen = 25; //尾巴长度
+        // this.livesPoint = [];
+        // this.tail = []; //尾巴位置数组
+        // this.tailLen = 25; //尾巴长度
         this.particleCount = 30;
         this.particles = [];
         this.binding();
-        this.initLife();
+        // this.initLife();
     }
 
     binding() {
@@ -53,40 +53,43 @@ export default class Player extends Point {
     }
 
     //初始化生命值
-    initLife() {
-        this.livesPoint = [];
-        for(let i = 0; i < this.lives; i++) {
-            this.livesPoint.push(new Life({}));
-        }
-    }
+    // initLife() {
+    //     this.livesPoint = [];
+    //     for(let i = 0; i < this.lives; i++) {
+    //         this.livesPoint.push(new Life({}));
+    //     }
+    // }
 
     //减掉生命值
     minusLife() {
         if (this.lives > 0) {
-            var life = this.livesPoint[this.lives - 1];
-            life.dead = true;
+            // let life = this.livesPoint[this.lives - 1];
+            // life.dead = true;
             this.lives--;
         } else {
             //dead
             this.destroy();
         }
 
-        this.changeTailLen();
+        // this.looseTailLength();
     }
 
     //改变尾巴长度
-    changeTailLen() {
-        if(this.lives > 2) {
-            this.tailLen = 25 + (this.lives - 2) * 5;
-        } else {
-            this.tailLen = 25;
-        }
-    }
+    // looseTailLength() {
+    //     this.tailLen -=5;
+    // }
+    // changeTailLen() {
+    //     if(this.lives > 2) {
+    //         this.tailLen = 25 + (this.lives - 2) * 5;
+    //     } else {
+    //         this.tailLen = 25;
+    //     }
+    // }
 
     //失去生命的时候身体闪烁
     flash() {
         let self = this;
-        
+
         self.flashing = true;
         let timeout = setTimeout(function() {
             self.flashing = false;
@@ -100,23 +103,23 @@ export default class Player extends Point {
         this.lives = -1;
     }
 
-    recordTail() {
-        let self = this;
-        if (self.tail.length > self.tailLen) {
-            self.tail.splice(0, self.tail.length - self.tailLen);
-        }
-        self.tail.push({
-            x: self.x,
-            y: self.y
-        });
-    }
+    // recordTail() {
+    //     let self = this;
+    //     if (self.tail.length > self.tailLen) {
+    //         self.tail.splice(0, self.tail.length - self.tailLen);
+    //     }
+    //     self.tail.push({
+    //         x: self.x,
+    //         y: self.y
+    //     });
+    // }
 
     render() {
         let self = this;
 
         if (!self.dead) {
             map.ctx.beginPath();
-            
+
             //闪烁效果
             if (self.flashing) {
                 self.color = ["#fff", BODYCOLOR][Math.round(Math.random())];
@@ -126,12 +129,12 @@ export default class Player extends Point {
             map.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2, false);
             map.ctx.fill();
 
-            if (dis % 2) self.recordTail();
-            dis++;
+            // if (dis % 2) self.recordTail();
+            // dis++;
 
-            if (self.tail.length > self.tailLen - 10) {
-                self.renderTail();    
-            }
+            // if (self.tail.length > self.tailLen - 10) {
+            //     self.renderTail();
+            // }
         }
 
         //爆炸
@@ -160,18 +163,16 @@ export default class Player extends Point {
         }
 
         map.ctx.stroke();
-        
-        self.renderLife();
     }
     //渲染生命值节点
-    renderLife() {
-        let self = this;
-        for(let j = 1; j <= self.livesPoint.length; j++) {
-            let tailIndex = j * 5;
-            let life = self.livesPoint[j - 1];
-            life.render(self.tail[tailIndex]);
-        }
-    }
+    // renderLife() {
+    //     let self = this;
+    //     for(let j = 1; j <= self.livesPoint.length; j++) {
+    //         let tailIndex = j * 5;
+    //         let life = self.livesPoint[j - 1];
+    //         life.render(self.tail[tailIndex]);
+    //     }
+    // }
 
     renderBoom() {
         for (let i = 0; i < this.particles.length; i++) {
@@ -184,7 +185,7 @@ export default class Player extends Point {
                     eachPartical[j].update();
                 }
             }
-        }    
+        }
     }
  }
 
