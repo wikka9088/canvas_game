@@ -90,7 +90,6 @@ function initTimer() {
 
 //循环动画
 var enemyIndex;
-// var skillId;
 var hadCollision = false;
 function animate() {
     map.render();
@@ -107,10 +106,7 @@ function animate() {
                     finalScore();
                 }
 
-                player.collision(
-                    enemys[i].x,
-                    enemys[i].y
-                );
+                player.collision();
 
                 enemyIndex = i;
             }
@@ -144,7 +140,6 @@ function initRoles() {
         y: map.height * 0.6,
         enemys: enemys //引用用于相互作用
     });
-    // createSkill();
 }
 
 //最后分数

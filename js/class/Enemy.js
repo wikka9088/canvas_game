@@ -48,52 +48,9 @@ export default class Enemy extends Point {
         this.radius += size || 2;
     }
 
-    //躲避player
-    escape(player) {
-        // let angle = Math.atan(Math.abs(player.y - this.y) / Math.abs(player.x - this.x));
-        // let addX = (player.gravityRadius) * Math.cos(angle);
-        // let addY = (player.gravityRadius) * Math.sin(angle);
-
-        // if (this.x > player.x && this.x < player.x + addX) {
-        //     this.x += this.speed * 2;
-        // } else if (this.x < player.x && this.x > player.x - addX) {
-        //     this.x -= this.speed * 2;    
-        // }
-
-        // if (this.y > player.y && this.y < player.y + addY) {
-        //     this.y += this.speed;
-        // } else if (this.y < player.y && this.y > player.y - addY) {
-        //     this.y -= this.speed;    
-        // }
-        
-        // if (this.y > player.y + addY) {
-        //     console.log('a');
-        //     this.x -= this.speed * Math.sin(angle);
-        //     this.y -= this.speed * Math.cos(angle);
-        // } else {
-        //     console.log('b');
-        //     this.x += this.speed * Math.sin(angle);
-        //     this.y += this.speed * Math.cos(angle);
-        // }
-        let ratio = 1/30;
-        let angle = Math.atan2(this.y - player.y, this.x - player.x);
-        let ax = Math.abs(player.gravityRadius * Math.cos(angle));    
-        ax = this.x > player.x ? ax : -ax;    
-
-        let ay = Math.abs(player.gravityRadius * Math.sin(angle));    
-        ay = this.y > player.y ? ay : -ay;
-
-        this.vx += ax * ratio;
-        this.vy += ay * ratio;
-        this.x += this.vx * ratio;
-        this.y += this.vy * ratio;
-    }
-
     render() {
-        var self = this;
-
+        let self = this;
         map.ctx.beginPath();
-
         map.ctx.fillStyle = self.color;
         map.ctx.arc(self.x, self.y, self.radius, 0, Math.PI*2, false);
         map.ctx.fill();
