@@ -51,27 +51,6 @@
       display: inline-block;
       box-sizing: border-box;
     }
-    //i {
-    //  background: url('../images/sprites.png') top left;
-    //  color: #fff;
-    //  display: inline-block;
-    //  width: 20px;
-    //  height: 20px;
-    //  line-height: 20px;
-    //  vertical-align: middle;
-    //  margin-right: 20px;
-    //  font-style: normal;
-    //  font-size: 10px;
-    //  text-align: center;
-    //  -webkit-transform: scale(1.4);
-    //  transform: scale(1.4);
-    //  &.P {
-    //    background-position: 0px -138px;
-    //  }
-    //  &.E {
-    //    background-position: 0px -115px;
-    //  }
-    //}
   }
   .btn {
     position: absolute;
@@ -109,6 +88,7 @@
 
 .game-panel {
   color: #fff;
+  background-color: #000;
   font-size: 12px;
   padding: 10px;
   .level {
@@ -119,7 +99,7 @@
 .game-over {
   color: #fff;
   padding: 50px;
-  .score {
+  .game-over-modal {
     position: absolute;
     top: 50%;
     left: 50%;

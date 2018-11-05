@@ -1,7 +1,3 @@
-/**
- * 敌人粒子类
- */
-
 import map from './Map';
 import Point from './Point';
 
@@ -15,7 +11,6 @@ export default class Enemy extends Point {
         this.vy = 0;
         this.speed = options.speed || Math.random() * 1 + 0.5;
         this.type = options.type || 'normal';
-        this.ratio = window.innerHeight / window.innerWidth;
     }
 
     update() {
@@ -32,20 +27,6 @@ export default class Enemy extends Point {
 
     speedUp(speed) {
         this.speed += speed || 0.2;
-    }
-
-    speedDown(speed) {
-        let _speed = speed || 0.8
-        if (this.speed > _speed) this.speed -= _speed;
-    }
-
-    minimize(size) {
-        let _size = size || 2;
-        if (this.radius > _size) this.radius -= _size;
-    }
-
-    magnify(size) {
-        this.radius += size || 2;
     }
 
     render() {

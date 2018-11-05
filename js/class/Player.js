@@ -1,14 +1,9 @@
-/**
- * 玩家粒子
- */
-
 import Point from './Point';
 import map from './Map';
 import Life from './Life';
 import Particle from './Particle';
 
-const BODYCOLOR = "rgb(30,136,168)"
-const REDSCORE = 2; //撞击每个红点的分数
+const BODYCOLOR = "rgb(30,136,168)";
 let dis = 1; //每个几帧画一个尾巴粒子的计数器
 
 export default class Player extends Point {
@@ -24,7 +19,6 @@ export default class Player extends Point {
         this.tailLen = 25; //尾巴长度
         this.particleCount = 30;
         this.particles = [];
-        this.addScore = [];
         this.binding();
         this.initLife();
     }

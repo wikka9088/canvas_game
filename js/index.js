@@ -1,7 +1,3 @@
-/**
- * entry
- */
-
 import '../scss/main.scss';
 import map from '../js/class/Map.js';
 import Enemy from '../js/class/Enemy.js';
@@ -24,7 +20,6 @@ const world = document.getElementById("game");
 const gamePanel = document.getElementById("game-panel");
 const gameOver = document.getElementById("game-over");
 const timeEle = document.getElementById("time");
-const levelEle = document.getElementById("level");
 
 const raf = window.requestAnimationFrame
     || window.webkitRequestAnimationFrame
@@ -76,7 +71,6 @@ function initTimer() {
             //每隔10秒加速一次
             if (holdingTime % 10 === 0) {
                 holdingLevel++;
-                levelEle.innerText = holdingLevel;
                 for (let i = 0; i < enemys.length; i++) {
                     enemys[i].speedUp();
                 }
@@ -103,7 +97,7 @@ function animate() {
 
                 if (player.lives === 0) {
                     player.destroy();
-                    finalScore();
+                    gameOverModal();
                 }
 
                 player.collision();
@@ -117,7 +111,7 @@ function animate() {
 
     //碰到墙壁就狗带
     if (player.x < 0 || player.x > map.width || player.y < 0 || player.y > map.height) {
-        if (!player.dead) finalScore();
+        if (!player.dead) gameOverModal();
         player.destroy();
     }
 
@@ -143,10 +137,10 @@ function initRoles() {
 }
 
 //最后分数
-function finalScore() {
+function gameOverModal() {
     gamePanel.style.display = "none";
     gameOver.style.display = "block";
-    document.getElementById("score-time").innerHTML = 'Time: ' + holdingTime + ' seconds';
+    document.getElementById("game-time").innerHTML = 'Time: ' + holdingTime + ' seconds';
 }
 
 //开始界面的背景
@@ -172,7 +166,6 @@ function resetGame() {
     gameOver.style.display = "none";
     gameStart = true;
     timeEle.innerText = '0';
-    levelEle.innerText = '0';
 
     initRoles();
     initTimer();

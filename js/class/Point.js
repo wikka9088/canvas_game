@@ -1,6 +1,3 @@
-/**
- * 游戏中所有点的基类
- */
 export default class Point {
     constructor(options) {
         if (options) {

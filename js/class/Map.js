@@ -1,7 +1,3 @@
-/**
- * 地图类
- */
-
 class Map {
     
     init(options) {

@@ -1,7 +1,3 @@
-/**
- * 撞击后的粒子
- */
-
 import map from './Map';
 
 const rand = Math.random;
