@@ -5,10 +5,10 @@
     <title>HTML5 GAME</title>
 </head>
 <body>
-    <div id="start-page" class="start-page" style="display:none;">
-        <div id="introduction" class="introduction">
+    <div id="main-page" class="main-page" style="display:none;">
+        <div id="game-start" class="game-start">
             <h1 id="game-title">HTML5 GAME</h1>
-            <div id="game-btn" class="btn">
+            <div id="start-btn-container" class="btn">
                 <span id="start-button">Play</span>
             </div>
         </div>
@@ -20,13 +20,12 @@
             <canvas id="world"></canvas>
         </div>
         <div id="game-over" class="game-over" style="display:none">
-            <div class="game-over-modal">
+            <div class="game-over-container">
                 <p class="game-over">Game Over!</p>
                 <p id="game-time"></p>
                 <div class="btn">
                     <span id="restart">Restart</span>
                 </div>
-
             </div>
         </div>
     </div>

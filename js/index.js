@@ -8,13 +8,14 @@ let player;
 let enemys = [];
 let holdingTime = 0;
 let timer;
+let gameStart = false;
 
-const startPage = document.getElementById("start-page");
+const mainPage = document.getElementById("main-page");
+const startBtnContainer = document.getElementById("start-btn-container");
 const startBtn = document.getElementById("start-button");
 const gameTitle = document.getElementById("game-title");
-const gameBtn = document.getElementById("game-btn");
 const restartBtn = document.getElementById("restart");
-const startInfo = document.getElementById("introduction");
+const startPage = document.getElementById("game-start");
 const world = document.getElementById("game");
 const gamePanel = document.getElementById("game-panel");
 const gameOver = document.getElementById("game-over");
@@ -160,7 +161,7 @@ function renderBackground() {
 
 //重新开始游戏
 function resetGame() {
-    startInfo.style.display = "none";
+    startPage.style.display = "none";
     world.style.display = "block";
     gamePanel.style.display = "block";
     gameOver.style.display = "none";
@@ -172,26 +173,20 @@ function resetGame() {
 }
 
 //场景交互
-let gameStart = false;
 function start() {
     renderBackground();
     gameTitle.classList.add('active');
-    gameBtn.classList.add('active');
+    startBtnContainer.classList.add('active');
     startBtn.addEventListener('click', () => {
         resetGame();
         animate(); //animate只能调用一次
     });
-    startBtn.addEventListener('touchstart', () => {
-        resetGame();
-        animate(); //animate只能调用一次
-    });
     restartBtn.addEventListener('click', () => resetGame());
-    restartBtn.addEventListener('touchstart', () => resetGame());
 }
 
 
 (function loading() {
-    startPage.style.display = "block";
+    mainPage.style.display = "block";
     start();
 })();
 

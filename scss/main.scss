@@ -1,5 +1,5 @@
 $mainColor: #ffaf14;
-.introduction {
+.game-start {
   position: absolute;
   left: 0;
   right: 0;
@@ -39,7 +39,7 @@ $mainColor: #ffaf14;
 .game-over {
   color: #fff;
   padding: 50px;
-  .game-over-modal {
+  .game-over-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,24 +52,6 @@ $mainColor: #ffaf14;
     box-sizing: border-box;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-
-    //#restart {
-    //  display: inline-block;
-    //  width: 200px;
-    //  height: 50px;
-    //  line-height: 50px;
-    //  font-size: 20px;
-    //  margin-top: 20px;
-    //  background-color: rgba(255,175,20, 0.2);
-    //  border-radius: 25px;
-    //  border: 2px solid $mainColor;
-    //  color: $mainColor;
-    //  &:hover {
-    //    background-color: $mainColor;
-    //    color: #fff;
-    //    cursor: pointer;
-    //  }
-    //}
   }
 }
 
