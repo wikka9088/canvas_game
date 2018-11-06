@@ -8,10 +8,9 @@ export default class Player extends Point {
 
     constructor(options) {
         super(options);
-        this.enemys = options.enemys;
         this.color = options.color || PLAYER_COLOR;
         this.radius = 10;
-        this.lives = options.lives || 2;
+        this.lives = options.lives;
         this.particleCount = 30;
         this.particles = [];
         this.binding();
@@ -29,7 +28,6 @@ export default class Player extends Point {
         this.y = posY;
     }
 
-    //爆炸方法
     boom(x, y, color, size) {
         let self = this;
         let eachPartical = [];
@@ -39,14 +37,12 @@ export default class Player extends Point {
         self.particles.push(eachPartical);
     }
 
-    //撞击
     collision() {
         this.minusLife();
         this.boom(this.x, this.y);
         this.flash();
     }
 
-    //减掉生命值
     minusLife() {
         if (this.lives > 0) {
             this.lives--;
@@ -56,7 +52,6 @@ export default class Player extends Point {
         }
     }
 
-    //失去生命的时候身体闪烁
     flash() {
         let self = this;
 
@@ -79,7 +74,7 @@ export default class Player extends Point {
         if (!self.dead) {
             map.ctx.beginPath();
 
-            //闪烁效果
+            //flashing
             if (self.flashing) {
                 self.color = ["#fff", PLAYER_COLOR][Math.round(Math.random())];
             }
@@ -89,7 +84,7 @@ export default class Player extends Point {
             map.ctx.fill();
         }
 
-        //爆炸
+        //boom
         if (self.particles.length) self.renderBoom();
     }
 

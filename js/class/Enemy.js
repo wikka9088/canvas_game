@@ -6,7 +6,7 @@ export default class Enemy extends Point {
     constructor(options) {
         super(options);
         this.radius = Math.random() * 2 + 3;
-        this.color = "red";
+        this.color = "#fff";
         this.speed = options.speed || Math.random() + 0.5;
     }
 
